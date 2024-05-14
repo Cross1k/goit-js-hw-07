@@ -11,6 +11,7 @@ const box = document.querySelector("#boxes");
 
 create.addEventListener("click", createBoxes);
 destroy.addEventListener("click", destroyBoxes);
+const frag = document.createDocumentFragment();
 
 function createBoxes(amount) {
   box.innerHTML = "";
@@ -19,12 +20,13 @@ function createBoxes(amount) {
   if (amount > 0 && amount <= 100) {
     for (let i = 1; i <= amount; i++) {
       const divBox = document.createElement("div");
-      box.append(divBox);
+      frag.append(divBox);
       divBox.style.width = `${20 + i * 10}px`;
       divBox.style.height = `${20 + i * 10}px`;
       divBox.style.backgroundColor = getRandomHexColor();
     }
   }
+  box.append(frag);
   quantity.value = "";
 }
 

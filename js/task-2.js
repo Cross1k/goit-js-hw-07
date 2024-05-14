@@ -38,10 +38,12 @@ ul.style.minHeight = "648px";
 ul.style.padding = "0";
 ul.style.margin = "0 auto";
 
+const frag = document.createDocumentFragment();
+
 const gallery = images.forEach((image) => {
   const li = document.createElement("li");
   const img = document.createElement("img");
-  ul.append(li);
+  frag.append(li);
   li.append(img);
   li.style.height = "300px";
   img.style.width = "360px";
@@ -49,3 +51,5 @@ const gallery = images.forEach((image) => {
   img.src = image.url;
   img.alt = image.alt;
 });
+
+ul.append(frag);
